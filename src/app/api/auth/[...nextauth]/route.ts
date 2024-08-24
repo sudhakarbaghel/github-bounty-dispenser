@@ -1,20 +1,32 @@
-import NextAuth, { type NextAuthOptions } from "next-auth";
+// import NextAuth, { type NextAuthOptions } from "next-auth";
 
 import GitHubProvider from "next-auth/providers/github";
 
-export const authOptions: NextAuthOptions = {
-  debug: true,
-  session: {
-    strategy: "jwt",
-  },
-  providers: [
-    GitHubProvider({
-      clientId: "Iv23livz4uyjtVcTplPv",
-      clientSecret: "c7f0b59ebd357cb7c33bd206c95b4496433d0dbd",
-    }),
-  ],
-};
+// export const authOptions: NextAuthOptions = {
+//   debug: true,
+//   session: {
+//     strategy: "jwt",
+//   },
+//   providers: [
+//     GitHubProvider({
+//       clientId: "Iv23livz4uyjtVcTplPv",
+//       clientSecret: "c7f0b59ebd357cb7c33bd206c95b4496433d0dbd",
+//     }),
+//   ],
+// };
 
-export const handler = NextAuth(authOptions);
+// export const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST };
+// export { handler as GET, handler as POST };
+import NextAuth from "next-auth"
+
+const handler = NextAuth({
+    providers: [
+        GitHubProvider({
+          clientId: "Iv23livz4uyjtVcTplPv",
+          clientSecret: "c7f0b59ebd357cb7c33bd206c95b4496433d0dbd",
+        }),
+      ],
+})
+
+export { handler as GET, handler as POST }
